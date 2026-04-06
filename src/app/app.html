@@ -1,24 +1,26 @@
 <h1>{{ title() }}</h1>
-<p>Este es un parrafo</p>
-<div class="toolbar">
-    <button class="btn btn-primary">Boton</button>
-    <a href="https://www.google.com">Google</a>
+<header>
+    <div class="toolbar">
+        <a href="https://www.google.com">Google</a>
 
-    <ng-container [ngSwitch]="userType">
-        <ng-container *ngSwitchCase="'user'">
-            <button class="btn btn-secondary">Acciones basicas</button>
+        <ng-container [ngSwitch]="userType">
+            <ng-container *ngSwitchCase="'user'">
+                <a routerLink="/home" class="btn btn-secondary">Acciones basicas</a>
+            </ng-container>
+
+            <ng-container *ngSwitchCase="'prof'">
+                <a routerLink="/home" class="btn btn-secondary">Acciones Profes</a>
+            </ng-container>
+
+            <ng-container *ngSwitchCase="'admin'">
+                <a routerLink="/home" class="btn btn-secondary">Acciones basicas</a>
+                <a routerLink="/home" class="btn btn-secondary">Acciones Profes</a>
+                <a routerLink="/admin" class="btn btn-secondary">Acciones Administrador</a>
+            </ng-container>
         </ng-container>
+    </div>
+</header>
 
-        <ng-container *ngSwitchCase="'prof'">
-            <button class="btn btn-secondary">Acciones Profes</button>
-        </ng-container>
-
-        <ng-container *ngSwitchCase="'admin'">
-            <button class="btn btn-secondary">Acciones basicas</button>
-            <button class="btn btn-secondary">Acciones Profes</button>
-            <button class="btn btn-secondary">Acciones Administrador</button>
-        </ng-container>
-    </ng-container>
-</div>
-
-<app-student-table></app-student-table>
+<main>
+    <router-outlet></router-outlet>
+</main>

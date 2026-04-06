@@ -1,0 +1,62 @@
+<div class="admin-container">
+    <h2><i class="bi bi-shield-lock"></i> Panel de Administración</h2>
+
+    <!-- Tarjetas de estadísticas -->
+    <div class="stats-grid">
+        <div class="stat-card">
+            <i class="bi bi-people-fill"></i>
+            <div class="stat-info">
+                <span class="stat-number">{{ totalEstudiantes }}</span>
+                <span class="stat-label">Estudiantes</span>
+            </div>
+        </div>
+        <div class="stat-card">
+            <i class="bi bi-person-check-fill"></i>
+            <div class="stat-info">
+                <span class="stat-number">{{ estudiantesActivos }}</span>
+                <span class="stat-label">Activos</span>
+            </div>
+        </div>
+        <div class="stat-card">
+            <i class="bi bi-person-x-fill"></i>
+            <div class="stat-info">
+                <span class="stat-number">{{ estudiantesInactivos }}</span>
+                <span class="stat-label">Inactivos</span>
+            </div>
+        </div>
+        <div class="stat-card">
+            <i class="bi bi-graph-up"></i>
+            <div class="stat-info">
+                <span class="stat-number">{{ promedioGeneral | number:'1.1-1' }}</span>
+                <span class="stat-label">Promedio General</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Acciones rápidas -->
+    <h3><i class="bi bi-lightning-fill"></i> Acciones Rápidas</h3>
+    <div class="actions-grid">
+        <button class="action-btn" (click)="accion = 'usuarios'">
+            <i class="bi bi-person-plus-fill"></i>
+            Gestionar Usuarios
+        </button>
+        <button class="action-btn" (click)="accion = 'reportes'">
+            <i class="bi bi-file-earmark-bar-graph"></i>
+            Generar Reportes
+        </button>
+        <button class="action-btn" (click)="accion = 'configuracion'">
+            <i class="bi bi-gear-fill"></i>
+            Configuración
+        </button>
+        <button class="action-btn" (click)="accion = 'backup'">
+            <i class="bi bi-cloud-arrow-down-fill"></i>
+            Respaldo de Datos
+        </button>
+    </div>
+
+    <!-- Mensaje de acción seleccionada -->
+    <div class="action-message" *ngIf="accion">
+        <i class="bi bi-info-circle"></i>
+        Sección seleccionada: <strong>{{ accion | titlecase }}</strong>
+    </div>
+</div>

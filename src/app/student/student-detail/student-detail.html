@@ -1,9 +1,9 @@
 <div class="cardStud">
-    <h4>Detalles del estudiante</h4>
 
     <!-- Si el estudiante existe muestro sus datos -->
-    <ng-container *ngIf="student">
-        <ul>
+    <ng-container *ngIf="student; else notFound">
+        <h4>Detalles del estudiante</h4>
+        <ul class="cardStud">
             <li>Nombre: {{ student.name }}</li>
             <li>Apellidos: {{ student.lastName }}</li>
             <li>Edad: {{ student.age }}</li>
@@ -14,8 +14,11 @@
             <li>Activo: {{ student.activated }}</li>
         </ul>
     </ng-container>
-    <!-- si no hay estudiante seleccionado muestro un mensaje -->
-    <ng-container *ngIf="!student">
-        <p>Seleccione un estudiante de la tabla</p>
-    </ng-container>
+
+    <ng-template #notFound>
+        <div class="alert alert-warning" style="margin-top: 20px;">
+            <p>Cargando estudiante o el estudiante no existe...</p>
+            <p>(Revisa la consola con F12 para ver los IDs obtenidos)</p>
+        </div>
+    </ng-template>
 </div>

@@ -36,6 +36,7 @@
                 <td>
                     <button class="btn btn-primary" (click)="mostrarEstudiante(student)">Seleccionar</button>
                     <button class="btn btn-danger" (click)="eliminarEstudiante(student)">Eliminar</button>
+                    <a routerLink="/student/detail/{{student.id}}" class="btn btn-info">Detalles</a>
                 </td>
             </ng-container>
         </tr>

@@ -5,6 +5,7 @@
 //Los metodos siempre son abstractos
 // se parece a los struct de c
 export interface Student {
+    id: number;
     name: string;
     lastName: string;
     age: number;

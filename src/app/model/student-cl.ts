@@ -9,8 +9,10 @@ export class StudentCL {
     public address?: string;
     public activated: boolean;
     public fechaPago: Date;
+    public id: number;
 
     constructor(
+        id: number,
         name: string,
         lastName: string,
         age: number,
@@ -21,6 +23,7 @@ export class StudentCL {
         activated: boolean,
         fechaPago: Date
     ) {
+        this.id = id;
         this.name = name;
         this.lastName = lastName;
         this.age = age;
