@@ -1,0 +1,66 @@
+<div class="form-wrapper">
+    <h3 class="form-title">
+        <i class="bi bi-person-badge"></i> Registrar Estudiante
+    </h3>
+    <form #studentForm="ngForm" class="formstud" (ngSubmit)="agregarEstudiante(studentForm)">
+        <div class="form-grid">
+            <div class="input-group">
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre" name="nombre" [(ngModel)]="formStudent.name" placeholder="Ej. Ana">
+            </div>
+
+            <div class="input-group">
+                <label for="apellido">Apellido</label>
+                <input type="text" id="apellido" name="apellido" [(ngModel)]="formStudent.lastName"
+                    placeholder="Ej. Martínez">
+            </div>
+
+            <div class="input-group">
+                <label for="edad">Edad</label>
+                <input type="number" id="edad" name="edad" [(ngModel)]="formStudent.age" placeholder="21">
+            </div>
+
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" required name="email" [(ngModel)]="formStudent.email"
+                    placeholder="correo@universidad.edu.mx">
+            </div>
+
+            <div class="input-group">
+                <label for="telefono">Teléfono</label>
+                <input type="text" id="telefono" name="telefono" [(ngModel)]="formStudent.phone"
+                    placeholder="614-123-4567">
+            </div>
+
+            <div class="input-group">
+                <label for="ppa">PPA (Promedio)</label>
+                <input type="number" id="ppa" name="ppa" step="0.1" [(ngModel)]="formStudent.ppa" placeholder="9.5">
+            </div>
+
+            <div class="input-group full-width">
+                <label for="direccion">Dirección</label>
+                <input type="text" id="direccion" name="direccion" [(ngModel)]="formStudent.address"
+                    placeholder="Av. Universidad #123">
+            </div>
+
+            <div class="input-group">
+                <label for="fechaPago">Fecha de Pago</label>
+                <input type="date" id="fechaPago" name="fechaPago" [(ngModel)]="formStudent.fechaPago">
+            </div>
+
+            <div class="checkbox-group">
+                <input type="checkbox" id="activated" name="activated" [(ngModel)]="formStudent.activated">
+                <label for="activated">Estudiante Activo</label>
+            </div>
+        </div>
+
+        <div class="form-actions">
+            <!-- Como ahora usas ngSubmit en la etiqueta form, el botón ya puede ser type="submit" y él disparará el evento automáticamente -->
+            <button type="submit" [disabled]="!studentForm.valid" class="btn-submit">
+                <i class="bi bi-save"></i> Guardar Estudiante
+            </button>
+        </div>
+    </form>
+</div>
+<strong><i class="bi bi-eye"></i> Vista previa:</strong> {{ formStudent.name }} {{ formStudent.lastName }}
+{{studentForm.form.valid}}

@@ -1,0 +1,9 @@
+.toolbar {
+    display: flex;
+    align-items: center; /* Alinea los elementos verticalmente en el centro */
+    gap: 15px;           /* Crea una separación uniforme de 15px entre cada elemento */
+    margin-bottom: 20px; /* Le da un poco de espacio hacia abajo con respecto a la tabla */
+    padding: 15px;       /* Un poco de espacio interior */
+    background-color: #f8f9fa; /* Un color de fondo gris clarito */
+    border-radius: 8px;  /* Bordes redondeados */
+}

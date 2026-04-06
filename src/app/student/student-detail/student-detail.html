@@ -1,0 +1,21 @@
+<div class="cardStud">
+    <h4>Detalles del estudiante</h4>
+
+    <!-- Si el estudiante existe muestro sus datos -->
+    <ng-container *ngIf="student">
+        <ul>
+            <li>Nombre: {{ student.name }}</li>
+            <li>Apellidos: {{ student.lastName }}</li>
+            <li>Edad: {{ student.age }}</li>
+            <li>Correo: {{ student.email }}</li>
+            <li>Telefono: {{ student.phone }}</li>
+            <li>Promedio: {{ student.ppa }}</li>
+            <li *ngIf="student.address">Direccion: {{ student.address }}</li>
+            <li>Activo: {{ student.activated }}</li>
+        </ul>
+    </ng-container>
+    <!-- si no hay estudiante seleccionado muestro un mensaje -->
+    <ng-container *ngIf="!student">
+        <p>Seleccione un estudiante de la tabla</p>
+    </ng-container>
+</div>

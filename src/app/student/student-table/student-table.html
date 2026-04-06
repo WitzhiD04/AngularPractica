@@ -1,0 +1,46 @@
+<h1>Listado de estudiantes</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido</th>
+            <th scope="col">Edad</th>
+            <th scope="col">Email</th>
+            <th scope="col">Telefono</th>
+            <th scope="col">PPA</th>
+            <th scope="col">Direccion</th>
+            <th scope="col">Activo</th>
+            <th scope="col">Fecha de Pago</th>
+            <th scope="col">Acción</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let student of students">
+            <!-- un if que muestra los estudiantes activos solamente
+             ng container es pa poner instrucciones exclusivas de angular -->
+            <ng-container *ngIf="student.activated">
+                <td>{{ student.name }}</td>
+                <td>{{ student.lastName }}</td>
+                <td>{{ student.age }}</td>
+                <td>{{ student.email }}</td>
+                <td>{{ student.phone }}</td>
+                <!-- si el ppa es mayor o igual a 9 se le pone la clase high-ppa, si no se le pone low-ppa -->
+                <td [ngClass]="{'high-ppa': student.ppa >= 9, 'low-ppa': student.ppa < 9}">{{ student.ppa }}</td>
+                <td>{{ student.address }}</td>
+                <td>
+                    <i *ngIf="student.activated" class="bi bi-check-circle">SI</i>
+                    <i *ngIf="!student.activated" class="bi bi-x-circle">NO</i>
+                </td>
+                <td>{{ student.fechaPago | date }}</td>
+                <td>
+                    <button class="btn btn-primary" (click)="mostrarEstudiante(student)">Seleccionar</button>
+                </td>
+            </ng-container>
+        </tr>
+    </tbody>
+</table>
+
+<app-student-detail [student]="selectedStudent"></app-student-detail>
+
+<app-student-form (addStudentEvent)="agregarEstudiante($event)"></app-student-form>

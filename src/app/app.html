@@ -1,0 +1,24 @@
+<h1>{{ title() }}</h1>
+<p>Este es un parrafo</p>
+<div class="toolbar">
+    <button class="btn btn-primary">Boton</button>
+    <a href="https://www.google.com">Google</a>
+
+    <ng-container [ngSwitch]="userType">
+        <ng-container *ngSwitchCase="'user'">
+            <button class="btn btn-secondary">Acciones basicas</button>
+        </ng-container>
+
+        <ng-container *ngSwitchCase="'prof'">
+            <button class="btn btn-secondary">Acciones Profes</button>
+        </ng-container>
+
+        <ng-container *ngSwitchCase="'admin'">
+            <button class="btn btn-secondary">Acciones basicas</button>
+            <button class="btn btn-secondary">Acciones Profes</button>
+            <button class="btn btn-secondary">Acciones Administrador</button>
+        </ng-container>
+    </ng-container>
+</div>
+
+<app-student-table></app-student-table>
