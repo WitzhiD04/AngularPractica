@@ -20,7 +20,7 @@
             <!-- un if que muestra los estudiantes activos solamente
              ng container es pa poner instrucciones exclusivas de angular -->
             <ng-container *ngIf="student.activated">
-                <td>{{ student.name }}</td>
+                <td>{{ student.name | emoticon }}</td>
                 <td>{{ student.lastName }}</td>
                 <td>{{ student.age }}</td>
                 <td>{{ student.email }}</td>

@@ -3,10 +3,12 @@ import { CommonModule } from '@angular/common';
 import { Student } from '../student';
 import { StudentDetail } from '../student-detail/student-detail';
 import { StudentForm } from '../student-form/student-form';
+import { EmoticonPipe } from '../../pipes/emoticon-pipe';
+import { StudentCL } from '../../model/student-cl';
 
 @Component({
   selector: 'app-student-table',
-  imports: [CommonModule, StudentDetail, StudentForm],
+  imports: [CommonModule, StudentDetail, StudentForm, EmoticonPipe],
   templateUrl: './student-table.html',
   styleUrl: './student-table.css',
 })
@@ -17,7 +19,7 @@ export class StudentTable {
   mostrarFormulario: boolean = false;
 
   // se escriben como un json
-  students: Student[] = [
+  students: StudentCL[] = [
     {
       name: 'Carlos',
       lastName: 'Hernández',
