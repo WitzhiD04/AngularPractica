@@ -14,6 +14,8 @@ export class StudentTable {
 
   selectedStudent!: Student
 
+  mostrarFormulario: boolean = false;
+
   // se escriben como un json
   students: Student[] = [
     {
@@ -130,5 +132,14 @@ export class StudentTable {
 
   agregarEstudiante(student: Student) {
     this.students.push(student);
+  }
+
+  eliminarEstudiante(student: Student) {
+    var index = this.students.indexOf(student);
+    this.students.splice(index, 1);
+  }
+
+  mostrarForm() {
+    this.mostrarFormulario = true;
   }
 }

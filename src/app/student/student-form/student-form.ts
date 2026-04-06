@@ -37,4 +37,12 @@ export class StudentForm {
 
     this.addStudentEvent.emit(this.sendStudent);
   }
+
+  @Output()
+  ocultarForm = new EventEmitter<boolean>();
+
+  ocultarFormulario() {
+    this.ocultarForm.emit(false);
+  }
+
 }

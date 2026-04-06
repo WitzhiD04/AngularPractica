@@ -26,4 +26,6 @@ export class StudentDetail {
   ngOnChanges(): void {
     console.log("ngOnChanges en student-detail");
   }
+
+  //On destroy asegura que ocurra algo antes de cerrar un componente
 }

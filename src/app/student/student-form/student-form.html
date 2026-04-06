@@ -6,12 +6,13 @@
         <div class="form-grid">
             <div class="input-group">
                 <label for="nombre">Nombre</label>
-                <input type="text" id="nombre" name="nombre" [(ngModel)]="formStudent.name" placeholder="Ej. Ana">
+                <input type="text" id="nombre" required name="nombre" [(ngModel)]="formStudent.name"
+                    placeholder="Ej. Ana">
             </div>
 
             <div class="input-group">
                 <label for="apellido">Apellido</label>
-                <input type="text" id="apellido" name="apellido" [(ngModel)]="formStudent.lastName"
+                <input type="text" id="apellido" required name="apellido" [(ngModel)]="formStudent.lastName"
                     placeholder="Ej. Martínez">
             </div>
 
@@ -34,7 +35,8 @@
 
             <div class="input-group">
                 <label for="ppa">PPA (Promedio)</label>
-                <input type="number" id="ppa" name="ppa" step="0.1" [(ngModel)]="formStudent.ppa" placeholder="9.5">
+                <input type="number" id="ppa" required name="ppa" step="0.1" [(ngModel)]="formStudent.ppa"
+                    placeholder="9.5">
             </div>
 
             <div class="input-group full-width">
@@ -59,6 +61,7 @@
             <button type="submit" [disabled]="!studentForm.valid" class="btn-submit">
                 <i class="bi bi-save"></i> Guardar Estudiante
             </button>
+            <button class="btn btn-primary" (click)="ocultarFormulario()">Ocultar Formulario</button>
         </div>
     </form>
 </div>

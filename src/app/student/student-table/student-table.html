@@ -35,6 +35,7 @@
                 <td>{{ student.fechaPago | date }}</td>
                 <td>
                     <button class="btn btn-primary" (click)="mostrarEstudiante(student)">Seleccionar</button>
+                    <button class="btn btn-danger" (click)="eliminarEstudiante(student)">Eliminar</button>
                 </td>
             </ng-container>
         </tr>
@@ -43,4 +44,9 @@
 
 <app-student-detail [student]="selectedStudent"></app-student-detail>
 
-<app-student-form (addStudentEvent)="agregarEstudiante($event)"></app-student-form>
+<button class="btn btn-primary" (click)="mostrarForm()">Agregar Estudiante</button>
+
+<ng-container *ngIf="mostrarFormulario">
+    <app-student-form (addStudentEvent)="agregarEstudiante($event)"
+        (ocultarForm)="mostrarFormulario = $event"></app-student-form>
+</ng-container>
